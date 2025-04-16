@@ -58,7 +58,7 @@ const ChristAIPage = () => {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 pb-20">
         {messages.map((message, index) => (
           <div
             key={index}
@@ -89,7 +89,7 @@ const ChristAIPage = () => {
         <div ref={messagesEndRef} />
       </div>
       
-      <form onSubmit={handleSubmit} className="p-4 border-t border-gray-200">
+      <form onSubmit={handleSubmit} className="fixed bottom-16 left-0 right-0 p-4 bg-white border-t border-gray-200">
         <div className="flex items-center space-x-2">
           <input
             type="text"
