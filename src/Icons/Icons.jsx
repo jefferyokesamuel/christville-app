@@ -109,6 +109,36 @@ export const LeaderBoardIcon = () => {
   );
 };
 
+export const CrossIcon = () => {
+  return (
+    <svg
+      width="30"
+      height="30"
+      viewBox="0 0 30 30"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15 3C8.37258 3 3 8.37258 3 15C3 21.6274 8.37258 27 15 27C21.6274 27 27 21.6274 27 15C27 8.37258 21.6274 3 15 3Z"
+        stroke="currentColor"
+        stroke-width="1.6"
+      />
+      <path
+        d="M10 15H20"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+      />
+      <path
+        d="M15 10V20"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+      />
+    </svg>
+  );
+};
+
 export const FriendsIcon = () => {
   return (
     <svg

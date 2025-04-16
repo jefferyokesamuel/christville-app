@@ -25,7 +25,7 @@ const ChristAIPage = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8080/christ-ai/verse', {
+      const response = await fetch('https://vivablockchainconsulting.xyz/christ-ai/verse', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,13 +33,22 @@ const ChristAIPage = () => {
         body: JSON.stringify({ prompt: userMessage }),
       });
 
-      if (!response.ok) throw new Error('Failed to get response');
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        console.error('API Error:', {
+          status: response.status,
+          statusText: response.statusText,
+          errorData
+        });
+        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+      }
       
       const data = await response.json();
       setMessages(prev => [...prev, { text: data.result, isUser: false }]);
     } catch (error) {
+      console.error('Error in handleSubmit:', error);
       setMessages(prev => [...prev, { 
-        text: 'Sorry, I encountered an error. Please try again.', 
+        text: `Sorry, I encountered an error: ${error.message}. Please try again later.`, 
         isUser: false 
       }]);
     } finally {

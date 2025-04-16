@@ -6,7 +6,7 @@ import {
   HomeIcon,
   FaithIcon,
   TaskIcon,
-  LeaderBoardIcon,
+  CrossIcon,
   FriendsIcon,
 } from "../Icons/Icons";
 
@@ -14,7 +14,7 @@ const navigation = [
   { name: "Home", path: "/app/page-1", icon: <HomeIcon /> },
   { name: "Faith", path: "/app/page-2", icon: <FaithIcon /> },
   { name: "Task", path: "/app/page-3", icon: <TaskIcon /> },
-  { name: "Leaderboard", path: "/app/page-4", icon: <LeaderBoardIcon /> },
+  { name: "ChristAI", path: "/app/page-4", icon: <CrossIcon /> },
   { name: "Friends", path: "/app/page-5", icon: <FriendsIcon /> },
 ];
 

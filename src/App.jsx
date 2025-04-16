@@ -20,6 +20,7 @@ import LeaderBoard from "./Pages/AppPages/LeaderBoard";
 import FriendsPage from "./Pages/AppPages/FriendsPage";
 import GamesPage from "./Pages/AppPages/InAppPages/GamesPage";
 import PrayerWallPage from "./Pages/AppPages/InAppPages/PrayerWallPage";
+import ChristAIPage from "./Pages/AppPages/ChristAIPage";
 
 function App() {
   return (
@@ -39,10 +40,10 @@ function App() {
                 <Route
                   path="/app/page-2/prayer-wall"
                   element={<PrayerWallPage />}
-                />
+                /> 
               </Route>
               <Route path="/app/page-3" element={<TaskPage />} />
-              <Route path="/app/page-4" element={<LeaderBoard />} />
+              <Route path="/app/page-4" element={<ChristAIPage />} />
               <Route path="/app/page-5" element={<FriendsPage />} />
             </Route>
           </Routes>
