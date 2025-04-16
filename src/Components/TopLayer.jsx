@@ -3,7 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { UserContext, useUserContext } from "../Usercontext";
 
 //Icon(s)
-import { ThunderboltIcon } from "../Icons/Icons";
+import { ThunderboltIcon, CrossIcon } from "../Icons/Icons";
 
 const TopLayer = ({ userId }) => {
   const location = useLocation();
@@ -80,7 +80,7 @@ const TopLayer = ({ userId }) => {
         )}
         {/* coin value which is gotten from how long the user has been on telegram */}
         <div className="flex items-center gap-2">
-          <img src="/coin.png" alt="currency" />
+          <CrossIcon />
           <p className="font-bold text-[27px] text-customGold">{daysSinceJoin}</p>
           {/* replace with daysSinceJoin */}
         </div>
