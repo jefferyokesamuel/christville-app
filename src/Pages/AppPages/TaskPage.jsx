@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useTheme } from "../../Components/ThemeContect";
-import { ThunderboltIcon } from "../../Icons/Icons";
+import { ThunderboltIcon, CoinIcon } from "../../Icons/Icons";
 import { FaChevronRight } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -47,19 +47,19 @@ const TaskPageContent = [
   {
     path: "#",
     icon: "/twitter X 3D ICON.png",
-    taskText: "Follow Christville’s on X (Twitter)",
+    taskText: "Follow Christville's on X (Twitter)",
     coinText: "50",
   },
   {
     path: "#",
     icon: "/LINKEDIN ICON.png",
-    taskText: "Follow Christville’s LinkedIn page",
+    taskText: "Follow Christville's LinkedIn page",
     coinText: "50",
   },
   {
     path: "#",
     icon: "/INSTAGRAM ICON.png",
-    taskText: "Follow Christville’s IG page",
+    taskText: "Follow Christville's IG page",
     coinText: "50",
   },
 ];
@@ -96,10 +96,7 @@ const TaskPage = () => {
       <section className="flex items-center justify-between w-full">
         <section className="text-[22px] font-medium">Today</section>
         <section className="flex items-center gap-2">
-          <div className="flex">
-            <ThunderboltIcon />
-            <p>1</p>
-          </div>
+          
           <div className="border border-black bg-black w-5 h-5 rounded-full"></div>
         </section>
       </section>
@@ -121,7 +118,7 @@ const TaskPage = () => {
               <div className="text-[13px] w-[214px] space-y-2">
                 <p>{item.taskText}</p>
                 <section className="flex items-center gap-1">
-                  <img src="/BOSS COIN ICON 2 (DARK).png" alt="coin" />
+                  <CoinIcon />
                   <p>{item.coinText}</p>
                 </section>
               </div>
@@ -141,8 +138,8 @@ const TaskPage = () => {
           {selectedTask?.taskText}
         </h2>
         <p className="center justify-center py-3 mt-3 text-customGold">
-          <img src="/coin.png" alt="coin" className="mr-3" /> Earn{" "}
-          {selectedTask?.coinText} Boss coins
+          <CoinIcon className="mr-3" /> Earn{" "}
+          {selectedTask?.coinText} Christ coins
         </p>
         <div className="space-y-7">
           <Link

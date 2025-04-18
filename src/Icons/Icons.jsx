@@ -209,3 +209,61 @@ export const SendIcon = () => {
     </svg>
   );
 };
+
+export const CoinIcon = () => {
+  return (
+    <svg
+      width="30"
+      height="30"
+      viewBox="0 0 30 30"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Outer ring with shadow effect */}
+      <circle
+        cx="15"
+        cy="15"
+        r="12"
+        fill="#F59E0B"
+        stroke="#D97706"
+        stroke-width="1.6"
+      />
+      {/* Inner ring */}
+      <circle
+        cx="15"
+        cy="15"
+        r="9"
+        fill="#FCD34D"
+        stroke="#D97706"
+        stroke-width="1.2"
+      />
+      {/* Cross symbol */}
+      <path
+        d="M15 10V20"
+        stroke="#D97706"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M10 15H20"
+        stroke="#D97706"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      {/* Decorative lines */}
+      <path
+        d="M8 15C8 11.134 11.134 8 15 8C18.866 8 22 11.134 22 15"
+        stroke="#D97706"
+        stroke-width="1"
+        stroke-dasharray="2 2"
+      />
+      <path
+        d="M8 15C8 18.866 11.134 22 15 22C18.866 22 22 18.866 22 15"
+        stroke="#D97706"
+        stroke-width="1"
+        stroke-dasharray="2 2"
+      />
+    </svg>
+  );
+};
+

@@ -17,7 +17,7 @@ const FriendPageContent = [
   },
   {
     image: "/Frame 153.png",
-    text: "You earn boss coins, airdrop points, XP and more benefits!",
+    text: "You earn christ coins, airdrop points, XP and more benefits!",
   },
 ];
 

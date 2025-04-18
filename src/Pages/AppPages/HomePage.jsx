@@ -62,44 +62,69 @@ const HomePage = () => {
   };
 
   return (
-    <div className="flex flex-col h-[50vh] font-Poppins px-[28px]">
+    <div className="flex flex-col min-h-screen font-Poppins px-6">
       <TopLayer />
-      <section className="flex flex-col items-center gap-4">
-        <h3 className="text-2xl mt-8 mb-5">Tap to read</h3>
-        {/* When image is clicked, fetch Bible verse */}
-        <button onTouchStart={fetchBibleVerse} onClick={fetchBibleVerse}>
-          <img src={imageSrc} alt="Bible" className="cursor-pointer" go />
+      <section className="flex flex-col items-center gap-6 mt-8">
+        <h3 className="text-2xl font-semibold text-gray-800">Tap to read</h3>
+        <button 
+          onTouchStart={fetchBibleVerse} 
+          onClick={fetchBibleVerse}
+          className="transform transition-transform hover:scale-105 active:scale-95"
+        >
+          <img 
+            src={imageSrc} 
+            alt="Bible" 
+            className="w-80 h-48 object-contain cursor-pointer" 
+          />
         </button>
+        
         {/* Display the Bible verse */}
         {bibleVerse && (
-          <div className="mt-4">
-            <h3>Verse of the day</h3>
-            <h4 className="font-semibold pt-3">{bibleVerse.reference}</h4>
-            <p className="pt-[21px] pb-[24px]">- "{bibleVerse.text}"</p>
+          <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-6 mt-4">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">Verse of the day</h3>
+              <h4 className="text-lg font-medium text-blue-600">{bibleVerse.reference}</h4>
+            </div>
+            
+            <div className="bg-gray-50 rounded-lg p-6 mb-6">
+              <p className="text-gray-800 text-lg italic leading-relaxed text-center">
+                "{bibleVerse.text}"
+              </p>
+            </div>
+
             {/* Action Buttons */}
-            <div className="flex items-center justify-between">
-              <section className="space-x-4">
+            <div className="flex items-center justify-between border-t border-gray-200 pt-4">
+              <section className="flex items-center space-x-6">
                 {/* Like Button */}
-                <button onClick={toggleLike}>
+                <button 
+                  onClick={toggleLike}
+                  className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                >
                   <FaHeart
                     style={{
-                      color: likes ? "red" : "black", // Change color when liked
+                      color: likes ? "#EF4444" : "#9CA3AF",
                       fontSize: "24px",
                     }}
                   />
                 </button>
 
                 {/* Share Button */}
-                <button onClick={shareMessage}>
+                <button 
+                  onClick={shareMessage}
+                  className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                >
                   <SendIcon />
                 </button>
               </section>
 
               {/* Bookmark Button */}
-              <button onClick={toggleBookmark}>
+              <button 
+                onClick={toggleBookmark}
+                className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+              >
                 <MdBookmarks
                   style={{
-                    color: bookmarked ? "#FFD700" : "black", // Custom color for bookmarked
+                    color: bookmarked ? "#F59E0B" : "#9CA3AF",
                     fontSize: "24px",
                   }}
                 />
