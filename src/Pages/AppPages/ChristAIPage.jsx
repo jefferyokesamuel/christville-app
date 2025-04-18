@@ -15,6 +15,37 @@ const ChristAIPage = () => {
     scrollToBottom();
   }, [messages]);
 
+  const formatVerse = (verse) => {
+    try {
+      // Remove markdown code block formatting if present
+      const cleanVerse = verse.replace(/```json\s*|\s*```/g, '').trim();
+      const parsed = JSON.parse(cleanVerse);
+      
+      if (parsed.verses && Array.isArray(parsed.verses)) {
+        return (
+          <div className="space-y-4">
+            {parsed.message && (
+              <p className="text-gray-700 font-medium mb-3">{parsed.message}</p>
+            )}
+            <div className="space-y-3">
+              {parsed.verses.map((v, index) => (
+                <div key={index} className="bg-white p-4 rounded-lg shadow-sm">
+                  <p className="text-gray-800 italic mb-2">"{v.text}"</p>
+                  <p className="text-gray-600 text-right">— {v.reference}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      }
+    } catch (e) {
+      console.error('Error parsing verse:', e);
+      // If parsing fails, try to display the raw text without markdown
+      return verse.replace(/```json\s*|\s*```/g, '').trim();
+    }
+    return verse;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
@@ -44,7 +75,11 @@ const ChristAIPage = () => {
       }
       
       const data = await response.json();
-      setMessages(prev => [...prev, { text: data.result, isUser: false }]);
+      setMessages(prev => [...prev, { 
+        text: data.result, 
+        isUser: false,
+        formatted: formatVerse(data.result)
+      }]);
     } catch (error) {
       console.error('Error in handleSubmit:', error);
       setMessages(prev => [...prev, { 
@@ -68,10 +103,10 @@ const ChristAIPage = () => {
               className={`max-w-[80%] rounded-lg p-3 ${
                 message.isUser
                   ? 'bg-blue-500 text-white'
-                  : 'bg-gray-100 text-gray-800'
+                  : 'bg-gray-100'
               }`}
             >
-              {message.text}
+              {message.formatted || message.text}
             </div>
           </div>
         ))}
